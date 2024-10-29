@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ism.Controllers.UserController">
+    <Label text="Bienvenue dans la gestion des utilisateurs"/>
+    <Label text="Email :"/>
+    <TextField fx:id="emailField"/>
+    
+    <Label text="Login :"/>
+    <TextField fx:id="loginField"/>
+    
+    <Label text="Password :"/>
+    <TextField fx:id="passwordField"/>
+    
+    <Label text="Rôle :"/>
+    <ComboBox fx:id="roleComboBox"/>
+    
+    <Button fx:id="createUserButton" text="Créer un utilisateur"/>
+    <Button fx:id="listUsersButton" text="Lister les utilisateurs"/>
+    
+    <TextArea fx:id="outputArea" editable="false" prefHeight="200"/>
+</VBox>

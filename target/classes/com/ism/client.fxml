@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.ism.controllers.ClientController" alignment="CENTER" spacing="10">
+    <children>
+        <!-- <Label text="Nom :" alignment="CENTER"/> -->
+        <TextField fx:id="nomField" promptText="Entrer le nom du client" />
+
+        <!-- <Label text="Prénom :" alignment="CENTER"/> -->
+        <TextField fx:id="prenomField" promptText="Entrer le prenom du client" />
+
+        <!-- <Label text="Téléphone :" alignment="CENTER"/> -->
+        <TextField fx:id="telephoneField" promptText="Téléphone" />
+
+        <!-- <Label text="Adresse :" alignment="CENTER"/> -->
+        <TextField fx:id="adresseField" promptText="Adresse" />
+
+        <CheckBox fx:id="associateUserCheckBox" text="Associer un utilisateur ?" />
+
+        <!-- <Label text="Email :" visible="false" alignment="CENTER"/> -->
+        <TextField fx:id="emailField" promptText="Entrer l'email du user" visible="false"/>
+
+        <!-- <Label text="Login :" visible="false" alignment="CENTER"/> -->
+        <TextField fx:id="loginField" promptText="Entrer le login du user" visible="false"/>
+
+        <!-- <Label text="Mot de passe :" visible="false" alignment="CENTER"/> -->
+        <PasswordField fx:id="passwordField" promptText="Mot de passe" visible="false"/>
+
+        <!-- <Label text="Rôle :" visible="false" /> -->
+        <ComboBox fx:id="roleComboBox" visible="false"/>
+
+        <Button fx:id="createClientButton" text="Créer un client" onAction="#createClient"/>
+
+        <TextArea fx:id="outputArea" editable="false"/>
+    </children>
+</VBox>

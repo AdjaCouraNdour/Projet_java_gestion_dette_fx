@@ -1,0 +1,3 @@
+module-info.class
+com\ism\data\repository\interfaces\ClientRepositoryI.class
+com\ism\core\Repository\Repository.class

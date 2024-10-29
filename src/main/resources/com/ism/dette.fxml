@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" padding="20">
+    <Text title="Gestion des Dettes" />
+    <Label text="Montant:" />
+    <TextField fx:id="montantField" />
+
+    <Label text="Montant Verse:" />
+    <TextField fx:id="montantVerseField" />
+
+    <Label text="Type de Dette:" />
+    <ComboBox fx:id="typeDetteComboBox" />
+
+    <Button text="Enregistrer Dette" onAction="#handleEnregistrerDette" />
+    <TextArea fx:id="outputArea" editable="false" />
+</VBox>

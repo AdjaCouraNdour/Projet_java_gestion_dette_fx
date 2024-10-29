@@ -1,0 +1,45 @@
+/* Style pour la barre de navigation supérieure */
+.top-nav-bar {
+    -fx-background-color: #800020; /* Rouge bordeaux */
+    -fx-padding: 10px 20px;
+    -fx-alignment: center-left;
+    -fx-spacing: 20px;
+}
+
+/* Style pour le titre de la barre de navigation supérieure */
+.nav-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Style pour le bouton de déconnexion */
+.logout-button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #800020;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: #e6e6e6; /* Gris clair */
+}
+
+/* Style pour la barre de navigation gauche */
+.nav-bar {
+    -fx-background-color: #800020;
+    -fx-padding: 30px;
+}
+
+.nav-bar .button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #800020;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.nav-bar .button:hover {
+    -fx-background-color: #e6e6e6;
+}
