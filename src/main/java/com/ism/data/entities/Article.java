@@ -22,9 +22,13 @@ public class Article extends AbstractEntity implements Identifiable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    public Article() {
+    @PrePersist
+    public void generateReference() {
+        if (this.id == 0) {
+            return;
+        }
         this.reference = String.format("A%06d", this.id);
-    }
+    } 
 
     @Column(length = 10,unique = true)
     private String reference;

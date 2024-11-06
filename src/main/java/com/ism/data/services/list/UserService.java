@@ -71,7 +71,6 @@ public class UserService implements UserServiceImpl {
         return repo.validateUser(login,password);
     }
 
-
 } 
 
 

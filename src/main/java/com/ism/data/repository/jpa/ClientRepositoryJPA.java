@@ -56,4 +56,20 @@ public class ClientRepositoryJPA extends RepositoryJPA<Client> implements Client
         }
         return client;
     }
+
+    @Override
+    public Client selectConnectedClient(int userId) {
+        try {
+            TypedQuery<Client> query = em.createQuery(
+                "SELECT c FROM Client c WHERE c.user.id = :userId", Client.class);
+            query.setParameter("userId", userId);
+            return query.getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println("Aucun client trouvé pour l'utilisateur ID : " + userId);
+            return null;
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la récupération du client pour l'utilisateur : " + e.getMessage());
+            return null;
+        }
+    }
 }

@@ -36,9 +36,7 @@ public class DetteListController {
 
     public void loadTable(){
         List<Dette> Dettes = factoryService.getInstanceDetteService().show();
-        System.out.println("zerfgffnjj");
         System.out.println(Dettes);
-        System.out.println("zerfgffnjj");
         ObservableList<Dette>DetteList=FXCollections.observableArrayList(Dettes);
         tabview.setItems(DetteList);
     };

@@ -8,5 +8,5 @@ public interface ClientRepositoryI extends Repository<Client>  {
 
     Client selectById(int id) ;
     Client selectByNumero(String numero) ;
-
+    Client selectConnectedClient(int userId) ;
 }

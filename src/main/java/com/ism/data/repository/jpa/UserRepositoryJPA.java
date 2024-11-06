@@ -128,24 +128,25 @@ public class UserRepositoryJPA extends RepositoryJPA<User> implements UserReposi
     //     }
     // }
     @Override
-public User validateUser(String login, String password) {
-    String sql = "SELECT u FROM User u WHERE u.login = :login AND u.password = :password";
-    
-    User user = null;
-    try {
-        TypedQuery<User> query = em.createQuery(sql, User.class);
-        query.setParameter("login", login);
-        query.setParameter("password", password);
-        user = query.getSingleResult();
-    } catch (NoResultException e) {
-        System.out.println("Aucun utilisateur trouvé avec login : " + login);
-        return null;
-    } catch (Exception e) {
-        System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
-        return null;
+    public User validateUser(String login, String password) {
+        String sql = "SELECT u FROM User u WHERE u.login = :login AND u.password = :password";
+        
+        User user = null;
+        try {
+            TypedQuery<User> query = em.createQuery(sql, User.class);
+            query.setParameter("login", login);
+            query.setParameter("password", password);
+            user = query.getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println("Aucun utilisateur trouvé avec login : " + login);
+            return null;
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la recherche de l'utilisateur : " + e.getMessage());
+            return null;
+        }
+        return user;
     }
-    return user;
-}
 
+    
       
 }

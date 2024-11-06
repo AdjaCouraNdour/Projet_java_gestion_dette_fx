@@ -15,5 +15,4 @@ public interface UserRepositoryI extends Repository<User> {
     User selectByEmail(String email);
     User validateUser(String login ,String password);
 
-
 }

@@ -46,5 +46,9 @@ public class ClientService implements ClientServiceI{
         return repo.update(object);
 
     }
+
+    public Client getConnectedClient(int userId) {
+        return repo.selectConnectedClient(userId);
+      }
 }
   
