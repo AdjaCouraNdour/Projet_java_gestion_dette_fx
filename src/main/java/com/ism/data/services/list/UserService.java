@@ -66,6 +66,11 @@ public class UserService implements UserServiceImpl {
         return repo.update(object);
     }
 
+    @Override
+    public User validateUser(String login, String password) {
+        return repo.validateUser(login,password);
+    }
+
 
 } 
 

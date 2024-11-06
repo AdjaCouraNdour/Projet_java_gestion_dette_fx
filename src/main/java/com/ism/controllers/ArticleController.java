@@ -11,16 +11,14 @@ public class ArticleController {
     @FXML private TextField libelleField;
     @FXML private TextField prixField;
     @FXML private TextField qteStockField;
-    @FXML private ComboBox<EtatArticle> etatArticleComboBox;
     @FXML private TextArea outputArea;
     @FXML private Button createArticleButton;
+    @FXML private EtatArticle etatArticle;
 
     private FactoryService factoryService = new FactoryService();
 
     @FXML
     private void initialize() {
-        // Initialiser les valeurs du ComboBox pour l'état de l'article
-        etatArticleComboBox.getItems().setAll(EtatArticle.values());
     }
 
     @FXML
@@ -29,7 +27,7 @@ public class ArticleController {
         String libelle = libelleField.getText();
         String prixString = prixField.getText();
         String qteStockString = qteStockField.getText();
-        EtatArticle etatArticle = etatArticleComboBox.getValue();
+        EtatArticle etatArticle = EtatArticle.Disponible;
 
         // Vérifier que les champs obligatoires ne sont pas vides
         if (libelle.isEmpty() || prixString.isEmpty() || qteStockString.isEmpty() || etatArticle == null) {
@@ -53,6 +51,10 @@ public class ArticleController {
         article.setLibelle(libelle);
         article.setPrix(prix);
         article.setQteStock(qteStock);
+
+        if ( article.getQteStock()==0) {
+            etatArticle = EtatArticle.Indisponible; 
+        }
         article.setEtatArticle(etatArticle);
 
         // Enregistrer l'article
@@ -72,7 +74,6 @@ public class ArticleController {
         libelleField.clear();
         prixField.clear();
         qteStockField.clear();
-        etatArticleComboBox.setValue(null);
     }
 
     public boolean enregistrerArticle(Article article) {

@@ -13,6 +13,7 @@ public interface UserRepositoryI extends Repository<User> {
     User selectByLogin(String login) ;
     User selectByUserEtat(boolean etat) ;
     User selectByEmail(String email);
-    
+    User validateUser(String login ,String password);
+
 
 }

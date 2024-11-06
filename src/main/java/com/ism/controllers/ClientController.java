@@ -3,7 +3,6 @@ package com.ism.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.util.function.Consumer;
-
 import com.ism.core.Factory.FactoryService;
 import com.ism.data.entities.Client;
 import com.ism.data.entities.User;
@@ -36,7 +35,6 @@ public class ClientController {
     }
 
     private void toggleUserFields() {
-        // Afficher ou masquer les champs utilisateur selon la sélection du checkbox
         boolean showUserFields = associateUserCheckBox.isSelected();
         emailField.setVisible(showUserFields);
         loginField.setVisible(showUserFields);
@@ -133,4 +131,5 @@ public class ClientController {
     public void setOnClientCreated(Consumer<Client> onClientCreated) {
         this.onClientCreated = onClientCreated;
     }
+
 }

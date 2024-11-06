@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import com.ism.controllers.ClientListController?>
+<?import com.ism.controllers.ArticleListController?>
+<?import com.ism.controllers.DetteListController?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.ClientController">
+   <children>
+      <Pane layoutX="-1.0" prefHeight="400.0" prefWidth="167.0" style="-fx-background-color: #3b000fea;">
+         <children>
+            <Button layoutX="33.0" layoutY="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: white;" text=" Clients" />
+            <Button layoutX="33.0" layoutY="102.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: white;" text=" Articles" />
+            <Button layoutX="34.0" layoutY="143.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: white;" text="Dettes" />
+            <Label layoutX="10.0" layoutY="9.0" text="Gestion Boutique" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="166.0" layoutY="-1.0" prefHeight="51.0" prefWidth="434.0" style="-fx-background-color: #3b000fea;">
+         <children>
+            <Button layoutX="345.0" layoutY="14.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="78.0" style="-fx-background-color: white;" text="logOut" textFill="#830000" />
+         </children>
+      </Pane>
+      <Pane layoutX="188.0" layoutY="64.0" prefHeight="323.0" prefWidth="390.0" style="-fx-background-color: f8e6e6;">
+         <children>
+            <TextField fx:id="nomField" layoutX="77.0" layoutY="17.0" prefHeight="25.0" prefWidth="93.0" promptText="Entrer le nom " />
+            <TextField fx:id="prenomField" layoutX="242.0" layoutY="17.0" prefHeight="25.0" prefWidth="131.0" promptText="Entrer le prenom " />
+            <TextField fx:id="telephoneField" layoutX="77.0" layoutY="52.0" promptText="Téléphone" />
+            <TextField fx:id="adresseField" layoutX="77.0" layoutY="87.0" prefHeight="25.0" prefWidth="295.0" promptText="Adresse" />
+            <CheckBox fx:id="associateUserCheckBox" layoutX="11.0" layoutY="125.0" text="Associer un utilisateur ?" />
+            <TextField fx:id="emailField" layoutX="81.0" layoutY="193.0" prefHeight="25.0" prefWidth="219.0" promptText="Entrer l'email " visible="false" />
+            <TextField fx:id="loginField" layoutX="80.0" layoutY="158.0" prefHeight="25.0" prefWidth="219.0" promptText="Entrer le login" visible="false" />
+            <PasswordField fx:id="passwordField" layoutX="83.0" layoutY="225.0" prefHeight="25.0" prefWidth="167.0" promptText="Mot de passe" visible="false" />
+            <ComboBox fx:id="roleComboBox" layoutX="269.0" layoutY="225.0" prefHeight="25.0" prefWidth="102.0" promptText=" Role User" style="-fx-background-color: white;" visible="false" />
+            <Button fx:id="createClientButton" layoutX="143.0" layoutY="266.0" onAction="#createClient" style="-fx-background-color: #3b000fea;" text="Créer un client" textFill="WHITE" />
+            <TextArea fx:id="outputArea" editable="false" layoutX="-21.0" layoutY="295.0" prefHeight="41.0" prefWidth="434.0" />
+
+            <Label layoutX="9.0" layoutY="22.0" text=" Nom :" />
+            <Label layoutX="9.0" layoutY="229.0" text="Password :" visible="false" />
+            <Label layoutX="10.0" layoutY="196.0" text="Email :" visible="false" />
+            <Label layoutX="10.0" layoutY="162.0" text="Login :" visible="false" />
+            <Label layoutX="189.0" layoutY="21.0" text="Prenom :" />
+            <Label layoutX="6.0" layoutY="56.0" text=" Telephone :" />
+            <Label layoutX="11.0" layoutY="91.0" text="Address :" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

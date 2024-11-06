@@ -13,4 +13,6 @@ public interface UserServiceImpl extends Service<User> {
      User getByEmail(String email);
      List<User> getByUserEtat();
      List<User> getByUserRole(UserRole role);
+     User validateUser(String login ,String password);
+
 }

@@ -1,5 +1,6 @@
 package com.ism.data.repository.jpa;
 
+
 import java.util.List;
 import com.ism.core.Repository.RepositoryJPA;
 import com.ism.data.entities.Article;
@@ -13,7 +14,7 @@ public class ArticleRepositoryJPA extends RepositoryJPA<Article> implements Arti
         super(type);
     }
 
-    // Méthode pour sélectionner un article par son identifiant
+     // Méthode pour sélectionner un article par son identifiant
     @Override
     public Article selectById(int id) {
         try {

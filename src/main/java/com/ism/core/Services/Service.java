@@ -8,5 +8,4 @@ public interface Service<T>{
     boolean update(T object);
     void effacer(T object);
     T getById(int id);
- 
 }

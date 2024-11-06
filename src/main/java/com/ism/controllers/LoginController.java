@@ -1,7 +1,65 @@
+// package com.ism.controllers;
+
+// import com.ism.App;
+// import com.ism.data.services.list.LoginService;
+// import javafx.fxml.FXML;
+// import javafx.scene.control.Alert;
+// import javafx.scene.control.Button;
+// import javafx.scene.control.PasswordField;
+// import javafx.scene.control.TextField;
+
+// public class LoginController {
+
+//     @FXML
+//     private TextField usernameField;
+//     @FXML
+//     private PasswordField passwordField;
+//     @FXML
+//     private Button loginButton;
+
+//     private App app;
+//     private LoginService loginService;
+
+//     @FXML
+//     public void initialize() {
+//         loginButton.setOnAction(event -> login());
+//     }
+
+//     public void setApp(App app) {
+//         this.app = app;
+//     }
+
+//     public void setLoginService(LoginService loginService) {
+//         this.loginService = loginService;
+//     }
+
+//     private void login() {
+//         String login = usernameField.getText();
+//         String password = passwordField.getText();
+
+//         if (loginService.validateUser(login, password)) {
+//             app.showMainApp();
+//         } else {
+//             Alert alert = new Alert(Alert.AlertType.ERROR);
+//             alert.setTitle("Erreur de connexion");
+//             alert.setHeaderText(null);
+//             alert.setContentText("Nom d'utilisateur ou mot de passe incorrect");
+//             alert.showAndWait();
+//         }
+//     }
+// }
+
+
+
 package com.ism.controllers;
+import java.io.IOException;
 
 import com.ism.App;
-import com.ism.data.services.list.LoginService;
+import com.ism.UserConnect;
+import com.ism.core.Factory.FactoryService;
+import com.ism.data.entities.User;
+import com.ism.data.services.list.UserService;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,41 +68,101 @@ import javafx.scene.control.TextField;
 
 public class LoginController {
 
-    @FXML
-    private TextField usernameField;
-    @FXML
-    private PasswordField passwordField;
-    @FXML
-    private Button loginButton;
+  @FXML
+  private TextField usernameField;
+  @FXML
+  private PasswordField passwordField;
+  @FXML
+  private Button loginButton;
 
-    private App app;
-    private LoginService loginService;
+  private FactoryService factoryService = new FactoryService();
 
-    @FXML
-    public void initialize() {
-        loginButton.setOnAction(event -> login());
+  public void setFactoryService(FactoryService factoryService) {
+      this.factoryService = factoryService;
+  }
+  
+  public LoginController(FactoryService factoryService) {
+    this.factoryService = factoryService;
+  }
+  
+  public LoginController(){
+  }
+
+  @FXML
+  public void initialize() {
+    loginButton.setOnAction(event -> login());
+  }
+
+  @FXML
+  private void login() { 
+    
+    String login = usernameField.getText();
+    String password= passwordField.getText();
+    User userConnect = null;
+
+  
+    // Vérification des champs
+    if (login.isEmpty() || password.isEmpty()) {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Erreur");
+      alert.setContentText("Veuillez remplir tous les champs.");
+      alert.showAndWait();
+      return; // On arrête l'exécution si les champs sont vides
     }
 
-    public void setApp(App app) {
-        this.app = app;
-    }
+    // Connexion
+    userConnect = factoryService.getInstanceUserService().validateUser(login, password);
+    UserService userService = factoryService.getInstanceUserService();
 
-    public void setLoginService(LoginService loginService) {
-        this.loginService = loginService;
-    }
+    if (userConnect != null) {
+      System.out.println(userConnect);
 
-    private void login() {
-        String login = usernameField.getText();
-        String password = passwordField.getText();
+      UserConnect.setUserConnect(userConnect);
 
-        if (loginService.validateUser(login, password)) {
-            app.showMainApp();
-        } else {
+      switch (userConnect.getUserRole()) {
+
+        case Admin:
+          try {
+            App.setRoot("menuAdmin");
+          } catch (IOException e) {
+            e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur de connexion");
-            alert.setHeaderText(null);
-            alert.setContentText("Nom d'utilisateur ou mot de passe incorrect");
+            alert.setTitle("Erreur de chargement");
+            alert.setContentText("Impossible de charger l'interface admin.");
             alert.showAndWait();
-        }
+          }
+          break;
+
+        case Boutiquier:
+          try {
+            App.setRoot("listerClients");
+          } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de chargement");
+            alert.setContentText("Impossible de charger l'interface client.");
+            alert.showAndWait();
+          }
+          break;
+
+        case Client:
+          try {
+            App.setRoot("menuClient");
+          } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur de chargement");
+            alert.setContentText("Impossible de charger l'interface client.");
+            alert.showAndWait();
+          }
+        default:
+          break;
+      }
+    } else {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Erreur de connexion");
+      alert.setContentText("Login ou mot de passe incorrect.");
+      alert.showAndWait();
     }
+  }
 }
