@@ -2,7 +2,7 @@
 
 /* Fond de la fenêtre */
 .root {
-    -fx-background-color: #4A0013; /* Couleur burgundy */
+    -fx-background-color: #9a0429; /* Couleur burgundy */
 }
 
 /* Couleurs des champs de texte */
@@ -14,7 +14,7 @@
 
 /* Bouton avec une teinte plus foncée */
 .button {
-    -fx-background-color: #3b000fea; /* Couleur burgundy plus foncée */
+    -fx-background-color: #9a0429; /* Couleur burgundy plus foncée */
     -fx-text-fill: white; /* Couleur du texte en blanc */
     -fx-padding: 10px 20px; /* Padding du bouton */
     -fx-font-size: 14px; /* Taille de la police */

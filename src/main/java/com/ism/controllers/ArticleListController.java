@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.ism.core.Factory.FactoryService;
 import com.ism.data.entities.Article;
+import com.ism.data.enums.EtatArticle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,9 @@ public class ArticleListController {
     @FXML private TableColumn<Article, String> libelle;
     @FXML private TableColumn<Article, String> qteStock;
     @FXML private TableColumn<Article, String> prix;
+    @FXML private TableColumn<Article, EtatArticle> etatArticle;
+
+    
     private FactoryService factoryService ;
 
 
@@ -30,9 +34,9 @@ public class ArticleListController {
         libelle.setCellValueFactory(new PropertyValueFactory<>("libelle"));
         qteStock.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        etatArticle.setCellValueFactory(new PropertyValueFactory<>("etatArticle"));
         factoryService= new FactoryService();
-       loadTable();
-
+        loadTable();
     }
 
     public void loadTable(){
@@ -56,48 +60,7 @@ public class ArticleListController {
                 e.printStackTrace(); // Gérez l'exception de manière appropriée
             }
         }
-        @FXML
-        public void listClient() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerClients.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
-        @FXML
-        public void listArticle() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerArticles.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
-        @FXML
-        public void listDette() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerDettes.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
+       
 }
 
 

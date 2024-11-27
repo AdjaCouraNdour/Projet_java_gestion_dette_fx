@@ -22,24 +22,31 @@ public class ClientController {
     @FXML private TextField emailField;
     @FXML private TextField loginField;
     @FXML private PasswordField passwordField;
-    @FXML private ComboBox<UserRole> roleComboBox;
+    // @FXML private ComboBox<UserRole> roleComboBox;
     private Consumer<Client> onClientCreated;
     private FactoryService factoryService = new FactoryService();
 
     @FXML
     private void initialize() {
         // Configuration initiale
-        roleComboBox.getItems().setAll(UserRole.values());
-        roleComboBox.setVisible(false); 
+        // roleComboBox.getItems().setAll(UserRole.values());
+        // roleComboBox.setVisible(false); 
         associateUserCheckBox.setOnAction(e -> toggleUserFields());
     }
 
     private void toggleUserFields() {
-        boolean showUserFields = associateUserCheckBox.isSelected();
-        emailField.setVisible(showUserFields);
-        loginField.setVisible(showUserFields);
-        passwordField.setVisible(showUserFields);
-        roleComboBox.setVisible(showUserFields);
+        if(associateUserCheckBox.isSelected()){
+            emailField.setDisable(false);
+            loginField.setDisable(false);
+            passwordField.setDisable(false);
+            // roleComboBox.setDisable(false);
+        }else{
+            emailField.setDisable(true);
+            loginField.setDisable(true);
+            passwordField.setDisable(true);
+            // roleComboBox.setDisable(true);
+        };
+       
     }
 
     @FXML
@@ -68,7 +75,7 @@ public class ClientController {
             String email = emailField.getText();
             String login = loginField.getText();
             String password = passwordField.getText();
-            UserRole role = roleComboBox.getValue();
+            UserRole role = UserRole.Client;
     
             // Vérifier que les champs utilisateur ne sont pas vides
             if (email.isEmpty() || login.isEmpty() || password.isEmpty() || role == null) {
@@ -111,7 +118,7 @@ public class ClientController {
         if (emailField != null) emailField.clear();
         if (loginField != null) loginField.clear();
         if (passwordField != null) passwordField.clear();
-        if (roleComboBox != null) roleComboBox.setValue(null);
+        // if (roleComboBox != null) roleComboBox.setValue(null);
     }
 
     public boolean enregistrerClient(Client client, User user) {

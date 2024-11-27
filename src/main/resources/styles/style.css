@@ -1,6 +1,6 @@
 /* Style pour la barre de navigation supérieure */
 .top-nav-bar {
-    -fx-background-color: #800020; /* Rouge bordeaux */
+    -fx-background-color: #9a0429; /* Rouge bordeaux */
     -fx-padding: 10px 20px;
     -fx-alignment: center-left;
     -fx-spacing: 20px;
@@ -16,7 +16,7 @@
 /* Style pour le bouton de déconnexion */
 .logout-button {
     -fx-background-color: #ffffff;
-    -fx-text-fill: #800020;
+    -fx-text-fill: #9a0429;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
     -fx-cursor: hand;
@@ -28,13 +28,13 @@
 
 /* Style pour la barre de navigation gauche */
 .nav-bar {
-    -fx-background-color: #800020;
+    -fx-background-color: #9a0429;
     -fx-padding: 30px;
 }
 
 .nav-bar .button {
     -fx-background-color: #ffffff;
-    -fx-text-fill: #800020;
+    -fx-text-fill: #9a0429;
     -fx-font-weight: bold;
     -fx-padding: 8px 16px;
     -fx-cursor: hand;

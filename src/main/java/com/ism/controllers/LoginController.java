@@ -5,8 +5,6 @@ import com.ism.App;
 import com.ism.UserConnect;
 import com.ism.core.Factory.FactoryService;
 import com.ism.data.entities.User;
-// import com.ism.data.services.list.UserService;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -29,7 +27,7 @@ public class LoginController {
   }
   
   public LoginController(FactoryService factoryService) {
-    this.factoryService = factoryService;
+      this.factoryService = factoryService;
   }
   
   public LoginController(){
@@ -70,6 +68,7 @@ public class LoginController {
 
         case Admin:
           try {
+            System.out.println("Chargement du menu admin...");
             App.setRoot("menuAdmin");
           } catch (IOException e) {
             e.printStackTrace();
@@ -82,12 +81,12 @@ public class LoginController {
 
         case Boutiquier:
           try {
-            App.setRoot("listerClients");
+            App.setRoot("menuBoutiquier");
           } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de chargement");
-            alert.setContentText("Impossible de charger l'interface client.");
+            alert.setContentText("Impossible de charger l'interface boutiquier.");
             alert.showAndWait();
           }
           break;
@@ -112,4 +111,6 @@ public class LoginController {
       alert.showAndWait();
     }
   }
+  
+  
 }

@@ -60,7 +60,20 @@ public class ClientListController {
             }
         }
 
-        
+        @FXML
+        public void listUser() {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerUsers.fxml"));
+                Parent root = loader.load();
+                
+                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
+                Stage stage = (Stage) tabview.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Gérez l'exception de manière appropriée
+            }
+        }
         @FXML
         public void listClient() {
             try {
@@ -93,6 +106,20 @@ public class ClientListController {
         public void listDette() {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerDettes.fxml"));
+                Parent root = loader.load();
+                
+                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
+                Stage stage = (Stage) tabview.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Gérez l'exception de manière appropriée
+            }
+        }
+        @FXML
+        public void listPaiement() {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerPaiements.fxml"));
                 Parent root = loader.load();
                 
                 // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue

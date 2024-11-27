@@ -15,51 +15,41 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" fx:controller="com.ism.controllers.LoginController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="521.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="521.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.LoginController">
    <children>
-      <VBox layoutY="-1.0" prefHeight="329.0" prefWidth="149.0" style="-fx-background-color: #680320;">
-         <children>
-            <ImageView fitHeight="121.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                <!-- <Image url="@/com/img/programmer.png" /> -->
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
+      <VBox layoutY="-1.0" prefHeight="329.0" prefWidth="153.0" style="-fx-background-color: #680320;" />
       <Separator layoutX="170.0" layoutY="79.0" prefHeight="2.0" prefWidth="333.0" style="-fx-background-color: #680320;" />
-      <Text fill="#680320" layoutX="216.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion De Dettes" textAlignment="CENTER">
+      <Text fill="#680320" layoutX="203.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion De Dettes" textAlignment="CENTER">
          <font>
             <Font name="System Bold Italic" size="28.0" />
          </font>
       </Text>
-      <GridPane fx:id="loginPane" alignment="CENTER" hgap="10" layoutX="209.0" layoutY="106.0" prefHeight="147.0" prefWidth="255.0" vgap="10">
+      <GridPane fx:id="loginPane" alignment="CENTER" hgap="10" layoutX="203.0" layoutY="97.0" prefHeight="147.0" prefWidth="255.0" vgap="10">
          <children>
-            <TextField fx:id="usernameField" promptText="Nom d'utilisateur" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label text="nom d'utulisateur:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <PasswordField fx:id="passwordField" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Mot de passe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Button fx:id="loginButton" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #680320;" text="Se connecter" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="214.0" promptText="Nom d'utilisateur" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="nom d'utulisateur:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordField" promptText="Mot de passe" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Mot de passe:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="loginButton" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #680320;" text="Se connecter" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="25.0" minHeight="24.0" prefHeight="24.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints maxHeight="26.0" minHeight="24.0" prefHeight="26.0" />
+            <RowConstraints maxHeight="25.0" minHeight="22.0" prefHeight="22.0" />
             <RowConstraints maxHeight="26.0" minHeight="25.0" prefHeight="26.0" />
             <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
             <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
             <RowConstraints />
          </rowConstraints>
       </GridPane>
-      <ImageView fitHeight="88.0" fitWidth="85.0" layoutX="174.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="445.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <!-- <Image url="@/com/img/down-arrow.png" /> -->
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="464.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <!-- <Image url="@/com/img/debt.png" /> -->
+            <Image url="@../img/down-arrow.png" />
          </image>
       </ImageView>
    </children>
