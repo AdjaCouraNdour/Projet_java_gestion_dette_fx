@@ -1,45 +1,35 @@
-/* Style pour la barre de navigation supérieure */
-.top-nav-bar {
-    -fx-background-color: #9a0429; /* Rouge bordeaux */
-    -fx-padding: 10px 20px;
-    -fx-alignment: center-left;
-    -fx-spacing: 20px;
+/* TableView Styling */
+.table-view {
+    -fx-border-radius: 5px;
+    -fx-background-color: #f8e6e6; /* Couleur de fond de l'intérieur du tableau */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 2, 2);
 }
 
-/* Style pour le titre de la barre de navigation supérieure */
-.nav-title {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ffffff;
+/* En-tête de la table */
+.table-view .column-header-background {
+    -fx-background-color: #680320; /* Couleur de fond de l'en-tête */
+
 }
 
-/* Style pour le bouton de déconnexion */
-.logout-button {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #9a0429;
-    -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-cursor: hand;
+/* Styles pour les en-têtes de colonnes */
+.table-view .column-header .label {
+    -fx-background-color: #680320; /* En-tête de couleur rouge */
+    -fx-text-fill: white; /* Texte blanc pour l'en-tête */
+    -fx-font-weight: bold; /* Texte en gras pour l'en-tête */
+    -fx-alignment: center; /* Centrer le texte dans l'en-tête */
+}
+.table-view .column-header, 
+.table-view .table-cell {
+    -fx-border-color: #f8e6e6; /* Séparation en couleur #f8e6e6 */
+    -fx-border-style: solid;
+    -fx-border-width: 0 1px 0 0; /* Bordure droite pour chaque colonne */
 }
 
-.logout-button:hover {
-    -fx-background-color: #e6e6e6; /* Gris clair */
+/* Style des cellules */
+.table-view .table-cell {
+    -fx-background-color: #f8e6e6; /* Fond des cellules */
+    -fx-padding: 5px;
+    -fx-alignment: center; /* Aligner le texte à gauche */
+    -fx-border-width: 0; /* Pas de bordure entre les cellules */
 }
 
-/* Style pour la barre de navigation gauche */
-.nav-bar {
-    -fx-background-color: #9a0429;
-    -fx-padding: 30px;
-}
-
-.nav-bar .button {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #9a0429;
-    -fx-font-weight: bold;
-    -fx-padding: 8px 16px;
-    -fx-cursor: hand;
-}
-
-.nav-bar .button:hover {
-    -fx-background-color: #e6e6e6;
-}

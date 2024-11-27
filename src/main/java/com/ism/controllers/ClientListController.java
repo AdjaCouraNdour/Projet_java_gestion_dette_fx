@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -45,89 +46,28 @@ public class ClientListController {
         tabview.setItems(clientList);
     };
 
-      @FXML
-        public void addClient() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/clientForm.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
+    @FXML
+    public void addClient() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/clientForm.fxml"));
+            Parent newContent = loader.load();
 
-        @FXML
-        public void listUser() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerUsers.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
+            // Récupérer le parent contenant `contentPane`
+            Parent parentRoot = tabview.getScene().getRoot();
+            VBox contentPane = (VBox) parentRoot.lookup("#contentPane");
+
+            // Remplacer le contenu du panneau central
+            if (contentPane != null) {
+                contentPane.getChildren().setAll(newContent);
+            } else {
+                System.out.println("ContentPane non trouvé !");
             }
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception ici
+            System.out.println("Erreur lors du chargement de la vue clientForm.fxml");
         }
-        @FXML
-        public void listClient() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerClients.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
-        @FXML
-        public void listArticle() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerArticles.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
-        @FXML
-        public void listDette() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerDettes.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
-        @FXML
-        public void listPaiement() {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/listerPaiements.fxml"));
-                Parent root = loader.load();
-                
-                // Remplacez la scène ou la fenêtre actuelle avec la nouvelle vue
-                Stage stage = (Stage) tabview.getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace(); // Gérez l'exception de manière appropriée
-            }
-        }
+    }
+
+
+       
 }

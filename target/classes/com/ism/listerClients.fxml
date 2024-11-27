@@ -10,7 +10,7 @@
 <Pane fx:id="contentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="438.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.ClientListController">
    <children>
 
-      <TableView fx:id="tabview" layoutX="38.0" layoutY="63.0" prefHeight="200.0" prefWidth="368.0" style="-fx-border-radius: 5px;">
+      <TableView fx:id="tabview" layoutX="38.0" layoutY="63.0" prefHeight="200.0" prefWidth="368.0"  style="-fx-border-radius: 5px; ">
          <columns>
             <TableColumn fx:id="nom" prefWidth="75.0" text="Nom" />
             <TableColumn fx:id="prenom" prefWidth="95.0" text="Prenom" />

@@ -33,6 +33,7 @@ public class DetteController {
     @FXML private Button createDetteButton;
     @FXML private TextArea outputArea;
 
+
     public void setConnectedUser(UserConnect connectedUser) {
         this.connectedUser = connectedUser;
     }

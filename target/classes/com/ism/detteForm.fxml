@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" fx:id="contentPane"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.DetteController">
+<Pane fx:id="contentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="432.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.DetteController">
    <children>
       <!-- Barre latérale pour la navigation -->
       
       <!-- Formulaire de création de dette -->
-      <Pane layoutX="188.0" layoutY="86.0" prefHeight="275.0" prefWidth="390.0" style="-fx-background-color: f8e6e6;">
+      <Pane layoutX="21.0" layoutY="46.0" prefHeight="275.0" prefWidth="390.0" style="-fx-background-color: f8e6e6;">
          <children>
             <Label layoutX="19.0" layoutY="24.0" text="Sélectionnez un article :" />
             <ComboBox fx:id="articleComboBox" layoutX="168.0" layoutY="20.0" prefWidth="200.0" promptText="Choisir un article" style="-fx-background-color: white;" />
@@ -31,7 +31,7 @@
       </Pane>
       
       <!-- Tableau des articles ajoutés -->
-      <TableView fx:id="tabview" layoutX="207.0" layoutY="217.0" prefHeight="104.0" prefWidth="348.0">
+      <TableView fx:id="tabview" layoutX="40.0" layoutY="177.0" prefHeight="104.0" prefWidth="348.0">
          <columns>
             <TableColumn fx:id="libelleColumn" prefWidth="140.5" text="Libellé" />
             <TableColumn fx:id="qteDetteColumn" prefWidth="102.5" text="Quantité" />
@@ -40,9 +40,9 @@
       </TableView>
 
       <!-- Zone d'affichage des messages de sortie -->
-      <TextArea fx:id="outputArea" editable="false" layoutX="167.0" layoutY="362.0" prefHeight="39.0" prefWidth="433.0" promptText="Messages de sortie..." />
+      <TextArea fx:id="outputArea" editable="false" layoutY="322.0" prefHeight="39.0" prefWidth="433.0" promptText="Messages de sortie..." />
       
-      <Label layoutX="319.0" layoutY="54.0" text="Faire une Dette" textFill="#3b000f">
+      <Label layoutX="152.0" layoutY="14.0" text="Faire une Dette" textFill="#900026">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

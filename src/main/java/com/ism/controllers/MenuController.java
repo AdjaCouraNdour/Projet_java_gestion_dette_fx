@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class MenuAdminController {
+public class MenuController {
     @FXML
     private VBox contentPane;
 
@@ -23,10 +23,6 @@ public class MenuAdminController {
     @FXML
     private void listArticle() {
         loadView("listerArticles");
-    }
-    @FXML
-    private void addArticle() {
-        loadView("articleForm");
     }
 
     @FXML

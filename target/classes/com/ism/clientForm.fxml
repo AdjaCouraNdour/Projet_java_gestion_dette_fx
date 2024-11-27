@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" fx:id="contentPane"  xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.ClientController">
+<Pane fx:id="contentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ism.controllers.ClientController">
    <children>
 
-      <Pane layoutX="176.0" layoutY="80.0" prefHeight="320.0" prefWidth="414.0" style="-fx-background-color: f8e6e6;">
+      <Pane layoutX="14.0" layoutY="39.0" prefHeight="320.0" prefWidth="414.0" style="-fx-background-color: f8e6e6;">
          <children>
             <TextField fx:id="nomField" layoutX="90.0" layoutY="15.0" prefHeight="17.0" prefWidth="93.0" promptText="Entrer le nom " />
             <TextField fx:id="prenomField" layoutX="255.0" layoutY="13.0" prefHeight="25.0" prefWidth="131.0" promptText="Entrer le prenom " />
@@ -34,7 +34,7 @@
             <Label layoutX="24.0" layoutY="78.0" text="Address :" />
          </children>
       </Pane>
-      <Label layoutX="314.0" layoutY="55.0" prefHeight="20.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="Creation d'un Client" underline="true">
+      <Label layoutX="152.0" layoutY="14.0" prefHeight="20.0" prefWidth="146.0" style="-fx-font-weight: bold;" text="Creation d'un Client" underline="true">
          <font>
             <Font size="14.0" />
          </font>

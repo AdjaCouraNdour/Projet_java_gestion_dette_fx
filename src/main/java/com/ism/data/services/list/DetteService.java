@@ -59,5 +59,12 @@ public class DetteService implements DetteServiceI{
         return repo.update(object);
 
     }
+    @Override
+    public List<Dette> getByClientId(int clientId) {
+        return repo.selectAll().stream()
+                   .filter(dette -> dette.getClient().getId() == clientId)
+                   .toList();
+    }
+    
     
 }

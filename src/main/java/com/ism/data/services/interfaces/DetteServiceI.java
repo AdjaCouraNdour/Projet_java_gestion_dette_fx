@@ -10,5 +10,6 @@ public interface DetteServiceI extends Service<Dette> {
     // Dette getById(int id) ;
     Dette getBy(TypeDette etat);
     List<Dette> getByType(TypeDette type);
+    List<Dette> getByClientId(int clientId);
 
 }
