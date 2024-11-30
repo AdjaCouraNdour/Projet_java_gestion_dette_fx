@@ -25,7 +25,6 @@ public class UserListController {
     @FXML private TableColumn<User, String> email;
     @FXML private TableColumn<User, Boolean> actif;
     @FXML private TableColumn<User, UserRole> userRole;
-    // @FXML private TableColumn<User, Integer> id;
     private FactoryService factoryService ;
 
 

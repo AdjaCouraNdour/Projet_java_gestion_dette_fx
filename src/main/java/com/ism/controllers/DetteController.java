@@ -91,7 +91,7 @@ public class DetteController {
         detail.setArticle(selectedArticle);
         detail.setQteDette(quantity);
         addedArticles.add(detail);
-
+       
         // Effacer les champs après ajout
         articleComboBox.setValue(null);
         quantityField.clear();
@@ -126,7 +126,7 @@ public class DetteController {
         }
         dette.setListeDetails(addedArticles);
 
-        enregistrerDette(dette);
+        // enregistrerDette(dette);
 
         if (enregistrerDette(dette)) {
             outputArea.appendText("Dette créée avec succès.\n");
@@ -136,14 +136,18 @@ public class DetteController {
             outputArea.appendText("Erreur lors de la création de la dette.\n");
         }
     }
-
-     public boolean enregistrerDette(Dette dette) {
+    public boolean enregistrerDette(Dette dette) {
         if (dette == null) {
             return false;
         }
-
         factoryService.getInstanceDetteService().save(dette);
-
+        for (Details detail : dette.getListeDetails()) {
+            Article article = detail.getArticle();
+            article.setQteStock(article.getQteStock() - detail.getQteDette());
+            factoryService.getInstanceArticleService().update(article);
+        }
+    
         return true;
     }
+    
 }

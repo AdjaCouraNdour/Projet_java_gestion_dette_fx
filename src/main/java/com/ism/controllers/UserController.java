@@ -12,7 +12,7 @@ public class UserController {
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
     @FXML private ComboBox<UserRole> roleComboBox;
-    @FXML private CheckBox actifCheckBox;
+    // @FXML private CheckBox actifCheckBox;
     @FXML private TextArea outputArea;
     @FXML private Button createUserButton;
 
@@ -24,7 +24,7 @@ public class UserController {
         roleComboBox.getItems().setAll(UserRole.values());
 
         // La case "Actif" est cochée par défaut
-        actifCheckBox.setSelected(true);
+        // actifCheckBox.setSelected(true);
     }
 
     @FXML
@@ -34,7 +34,7 @@ public class UserController {
         String email = emailField.getText();
         String password = passwordField.getText();
         UserRole role = roleComboBox.getValue();
-        boolean actif = actifCheckBox.isSelected();
+        // boolean actif = actifCheckBox.isSelected();
 
         // Vérification des champs obligatoires
         if (login.isEmpty() || email.isEmpty() || password.isEmpty() || role == null) {
@@ -48,7 +48,7 @@ public class UserController {
         user.setEmail(email);
         user.setPassword(password);
         user.setUserRole(role);
-        user.setActif(actif); // Si l'utilisateur est actif ou non (par défaut coché)
+        user.setActif(true);
 
         // Enregistrement de l'utilisateur
         boolean success = enregistrerUser(user);
@@ -82,6 +82,6 @@ public class UserController {
         emailField.clear();
         passwordField.clear();
         roleComboBox.setValue(null);
-        actifCheckBox.setSelected(true); // Remettre la case "Actif" à sa valeur par défaut (true)
+        // actifCheckBox.setSelected(true); // Remettre la case "Actif" à sa valeur par défaut (true)
     }
 }
