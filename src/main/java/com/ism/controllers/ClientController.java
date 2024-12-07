@@ -129,6 +129,7 @@ public class ClientController {
         if (user != null) {
             factoryService.getInstanceUserService().save(user);
             client.setUser(user);
+
         }
         factoryService.getInstanceClientService().save(client);
 

@@ -11,8 +11,10 @@
       <!-- Barre de navigation -->
       <Pane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="167.0" style="-fx-background-color: #680320;">
          <children>
-            <Button layoutX="33.0" layoutY="102.0" mnemonicParsing="false" onAction="#listArticle" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: white;" text="Articles" />
-            <Button layoutX="34.0" layoutY="143.0" mnemonicParsing="false" onAction="#listDette" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: white;" text="Dettes" />
+            <Button layoutX="18.0" layoutY="60.0" mnemonicParsing="false" onAction="#addDette" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: white;" text="Faire une dette" />
+            <Button layoutX="18.0" layoutY="100.0" mnemonicParsing="false" onAction="#listDette" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: white;" text="Lister mes dettes" />
+            <Button layoutX="18.0" layoutY="141.0" mnemonicParsing="false" onAction="#listPaiement" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: white;" text="Voir mes paiements" />
+
             <Label layoutX="10.0" layoutY="9.0" text="Gestion Boutique" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -29,7 +31,7 @@
       </Pane>
 
       <!-- Contenu principal dynamique -->
-      <VBox layoutX="166.0" layoutY="51.0" prefHeight="349.0" prefWidth="434.0" fx:id="contentPane">
+      <VBox fx:id="contentPane" layoutX="166.0" layoutY="51.0" prefHeight="349.0" prefWidth="434.0">
          <!-- Le contenu sera chargé dynamiquement ici -->
       </VBox>
    </children>

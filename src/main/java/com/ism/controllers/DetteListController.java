@@ -75,7 +75,7 @@ public class DetteListController {
             e.printStackTrace(); // Gérez l'exception de manière appropriée
         }
     }
-        @FXML
+    @FXML
     public void addDette() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/detteForm.fxml"));

@@ -17,23 +17,6 @@ public class UserRepositoryJPA extends RepositoryJPA<User> implements UserReposi
     }
 
     @Override
-    public boolean insert(User object) {
-        try {
-            if (object.getClient() != null) {
-                clientRepository.insert(object.getClient());
-                object.setClient(clientRepository.selectById(object.getClient().getId()));
-                super.insert(object); 
-            } else {
-                em.merge(object); 
-            }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();  
-            return false;
-        }
-    }
-
-    @Override
     public User selectById(int id) {
         try {
             return em.find(User.class, id);

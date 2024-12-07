@@ -2,12 +2,14 @@ package com.ism.controllers;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
+import com.ism.UserConnect;
 import com.ism.core.Factory.FactoryService;
+import com.ism.data.entities.Client;
 import com.ism.data.entities.Dette;
 import com.ism.data.entities.Paiement;
+import com.ism.data.enums.UserRole;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 
 public class PaiementListController {
@@ -29,7 +29,11 @@ public class PaiementListController {
     @FXML private TableColumn<Paiement, String> montant;
     @FXML private TableColumn<Paiement, Integer> id;
     private FactoryService factoryService ;
+    private UserConnect connectedUser;
 
+    public void setConnectedUser(UserConnect connectedUser) {
+        this.connectedUser = connectedUser;
+    }
 
     public void initialize(){
         dette.setCellValueFactory(new PropertyValueFactory<>("dette"));
@@ -42,10 +46,19 @@ public class PaiementListController {
     }
 
     public void loadTable(){
-        List<Paiement> Paiements = factoryService.getInstancePaiementService().show();
-        System.out.println(Paiements);
-        ObservableList<Paiement>PaiementList=FXCollections.observableArrayList(Paiements);
-        tabview.setItems(PaiementList);
+        Client connectedClient = factoryService.getInstanceClientService().getConnectedClient(connectedUser.getUserConnect().getId());
+        if (connectedClient.getUser().getUserRole() == UserRole.Client) {
+            List<Paiement> Paiements = factoryService.getInstancePaiementService().show();
+            System.out.println(Paiements);
+            ObservableList<Paiement>PaiementList=FXCollections.observableArrayList(Paiements);
+            tabview.setItems(PaiementList);
+        }else{
+            List<Paiement> Paiements = factoryService.getInstancePaiementService().show();
+            System.out.println(Paiements);
+            ObservableList<Paiement>PaiementList=FXCollections.observableArrayList(Paiements);
+            tabview.setItems(PaiementList);
+        }
+     
     };
           @FXML
     public void addPaiement() {

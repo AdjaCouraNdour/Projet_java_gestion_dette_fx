@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import com.ism.core.Factory.FactoryService;
 import com.ism.data.entities.Paiement;
+import com.ism.data.enums.TypeDette;
+
+import jakarta.persistence.EnumType;
+
 import com.ism.data.entities.Dette;
 
 import java.time.LocalDate;
@@ -20,7 +24,7 @@ public class PaiementController {
 
     @FXML
     private void initialize() {
-        dateField.setValue(LocalDate.now());
+        // dateField.setValue(LocalDate.now());
         loadDettes(); // Charger les dettes dans le ComboBox
     }
 
@@ -62,6 +66,13 @@ public class PaiementController {
             return false;
         }
         factoryService.getInstancePaiementService().save(paiement);
+        Dette dette = detteComboBox.getValue();
+        dette.setMontantVerse(dette.getMontantVerse()+paiement.getMontant());
+        dette.setMontantRestant(dette.getMontant()-dette.getMontantVerse());
+        if (dette.getMontantVerse() == dette.getMontant()) {
+            dette.setTypeDette(TypeDette.Solde);
+        }
+        factoryService.getInstanceDetteService().update(dette);
         return true;
     }
 

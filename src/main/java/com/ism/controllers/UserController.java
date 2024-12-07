@@ -12,7 +12,6 @@ public class UserController {
     @FXML private TextField emailField;
     @FXML private PasswordField passwordField;
     @FXML private ComboBox<UserRole> roleComboBox;
-    // @FXML private CheckBox actifCheckBox;
     @FXML private TextArea outputArea;
     @FXML private Button createUserButton;
 
@@ -23,8 +22,6 @@ public class UserController {
         // Initialiser les valeurs de la ComboBox avec les rôles disponibles
         roleComboBox.getItems().setAll(UserRole.values());
 
-        // La case "Actif" est cochée par défaut
-        // actifCheckBox.setSelected(true);
     }
 
     @FXML
@@ -82,6 +79,5 @@ public class UserController {
         emailField.clear();
         passwordField.clear();
         roleComboBox.setValue(null);
-        // actifCheckBox.setSelected(true); // Remettre la case "Actif" à sa valeur par défaut (true)
     }
 }

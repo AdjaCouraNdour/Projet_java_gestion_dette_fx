@@ -61,8 +61,8 @@ public class DetteController {
         addArticleButton.setOnAction(e -> addArticleToTable());
         createDetteButton.setOnAction(e -> createDette());
     }
-
-    @FXML
+    
+    @FXML   
     private void addArticleToTable() {
         Article selectedArticle = articleComboBox.getValue();
         if (selectedArticle == null) {
@@ -86,16 +86,34 @@ public class DetteController {
             return;
         }
 
-        // Créer un nouvel objet Details pour l'article sélectionné
-        Details detail = new Details();
-        detail.setArticle(selectedArticle);
-        detail.setQteDette(quantity);
-        addedArticles.add(detail);
-       
+        // Vérifier si l'article existe déjà dans la liste des détails
+        Details existingDetail = null;
+        for (Details detail : addedArticles) {
+            if (detail.getArticle().equals(selectedArticle)) {
+                existingDetail = detail;
+                break;
+            }
+        }
+
+        if (existingDetail != null) {
+            // Si l'article existe déjà, on met à jour la quantité
+            existingDetail.setQteDette(existingDetail.getQteDette() + quantity);
+            tabview.refresh();
+
+        } else {
+            // Sinon, on crée un nouveau détail et on l'ajoute
+            Details detail = new Details();
+            detail.setArticle(selectedArticle);
+            detail.setQteDette(quantity);
+            addedArticles.add(detail);
+        }
+
         // Effacer les champs après ajout
         articleComboBox.setValue(null);
         quantityField.clear();
     }
+
+
     @FXML   
     private void createDette() {
         Client connectedClient = factoryService.getInstanceClientService().getConnectedClient(connectedUser.getUserConnect().getId());
