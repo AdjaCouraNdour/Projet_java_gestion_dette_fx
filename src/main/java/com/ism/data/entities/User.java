@@ -18,13 +18,13 @@ import com.ism.data.enums.UserRole;
 })
 public class User extends AbstractEntity implements Identifiable {
     
-    @Column(length = 25,unique = true)
+    @Column(length = 25,unique = true,nullable = false)
     private String email;
 
-    @Column(length = 25,unique = true)
+    @Column(length = 25,unique = true,nullable = false)
     private String login;
  
-    @Column(length = 10,unique = true)
+    @Column(length = 10,unique = false,nullable = false)
     private String password;
 
     @Enumerated(EnumType.ORDINAL)

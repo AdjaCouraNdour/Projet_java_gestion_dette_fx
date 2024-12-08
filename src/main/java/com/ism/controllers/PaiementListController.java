@@ -46,9 +46,9 @@ public class PaiementListController {
     }
 
     public void loadTable(){
-        Client connectedClient = factoryService.getInstanceClientService().getConnectedClient(connectedUser.getUserConnect().getId());
-        if (connectedClient.getUser().getUserRole() == UserRole.Client) {
-            List<Paiement> Paiements = factoryService.getInstancePaiementService().show();
+        Client connectedClient = connectedUser.getUserConnect().getClient();
+        if (connectedUser.getUserConnect().getUserRole() == UserRole.Client) {
+            List<Paiement> Paiements = factoryService.getInstancePaiementService().getPaiementByClientId(connectedClient.getId());
             System.out.println(Paiements);
             ObservableList<Paiement>PaiementList=FXCollections.observableArrayList(Paiements);
             tabview.setItems(PaiementList);
@@ -60,7 +60,7 @@ public class PaiementListController {
         }
      
     };
-          @FXML
+    @FXML
     public void addPaiement() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ism/paiementForm.fxml"));

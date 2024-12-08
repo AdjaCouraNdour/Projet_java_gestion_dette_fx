@@ -5,38 +5,63 @@ import javafx.scene.control.*;
 import com.ism.core.Factory.FactoryService;
 import com.ism.data.entities.Paiement;
 import com.ism.data.enums.TypeDette;
-
-import jakarta.persistence.EnumType;
-
+import com.ism.data.entities.Client;
 import com.ism.data.entities.Dette;
-
 import java.time.LocalDate;
+import java.util.List;
+
 
 public class PaiementController {
 
     @FXML private DatePicker dateField;
     @FXML private TextField montantField;
     @FXML private ComboBox<Dette> detteComboBox;
+    @FXML private ComboBox<Client> clientComboBox;
+
     @FXML private Button createPaiementButton;
     @FXML private TextArea outputArea;
 
     private FactoryService factoryService = new FactoryService();
-
+    
     @FXML
     private void initialize() {
-        // dateField.setValue(LocalDate.now());
-        loadDettes(); // Charger les dettes dans le ComboBox
+        // Charger les clients dans la ComboBox client
+        List<Client> clients = factoryService.getInstanceClientService().show(); 
+        if (clients != null && !clients.isEmpty()) {
+            clientComboBox.getItems().setAll(clients);
+        } else {
+            outputArea.appendText("Aucun client trouvé.\n");
+        }
+    
+        // Listener pour mettre à jour la ComboBox dette en fonction du client sélectionné
+        clientComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Charger les dettes du client sélectionné
+                List<Dette> dettes = newValue.getListeDette(); 
+                if (dettes != null && !dettes.isEmpty()) {
+                    detteComboBox.getItems().setAll(dettes);
+                } else {
+                    detteComboBox.getItems().clear();
+                    outputArea.appendText("Ce client n'a aucune dette.\n");
+                }
+            } else {
+                detteComboBox.getItems().clear();
+            }
+        });
     }
-
-    private void loadDettes() {
-        // Remplir le ComboBox avec les dettes disponibles
-        detteComboBox.getItems().addAll(factoryService.getInstanceDetteService().show());
-    }
+    
 
     @FXML
     private void createPaiement() {
         LocalDate date = dateField.getValue();
         double montant = Double.parseDouble(montantField.getText());
+        Client client = clientComboBox.getValue();
+
+        if (client == null) {
+            outputArea.appendText("Veuillez sélectionner un client .\n");
+            return;
+        }
+
         Dette dette = detteComboBox.getValue();
 
         if (dette == null) {
@@ -44,11 +69,13 @@ public class PaiementController {
             return;
         }
 
+       
         Paiement paiement = new Paiement();
         paiement.setDate(date);
         paiement.setMontant(montant);
         paiement.setDette(dette);
 
+        
         // Enregistrer le paiement
         boolean success = enregistrerPaiement(paiement);
 

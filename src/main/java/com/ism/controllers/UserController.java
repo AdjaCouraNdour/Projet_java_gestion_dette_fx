@@ -64,9 +64,8 @@ public class UserController {
         if (user == null) {
             return false; 
         }
-
         try {
-            factoryService.getInstanceUserService().save(user); // Enregistrement dans la base de données
+            factoryService.getInstanceUserService().save(user); 
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,6 +73,9 @@ public class UserController {
         }
     }
 
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+/******  5a57a20a-81ba-490d-a191-1f4b918a62bf  *******/
     private void clearFields() {
         loginField.clear();
         emailField.clear();

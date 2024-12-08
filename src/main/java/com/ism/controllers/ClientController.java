@@ -125,16 +125,14 @@ public class ClientController {
         if (client == null) {
             return false; 
         }
-
         if (user != null) {
             factoryService.getInstanceUserService().save(user);
             client.setUser(user);
-
         }
         factoryService.getInstanceClientService().save(client);
-
         return true; 
     }
+    
 
     public void setOnClientCreated(Consumer<Client> onClientCreated) {
         this.onClientCreated = onClientCreated;

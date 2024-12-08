@@ -13,9 +13,16 @@ public class MenuController {
     private VBox contentPane;
 
     @FXML
-    private void logout() throws IOException {
-        App.setRoot("login");
+    private void logout() {
+        try {
+            System.out.println("Déconnexion en cours...");
+            App.setRoot("connexion");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Erreur lors de la déconnexion !");
+        }
     }
+
    @FXML
     private void listClient() {
         loadView("ListerClients");
@@ -67,4 +74,5 @@ public class MenuController {
             System.out.println("Erreur lors du chargement de la vue detteForm.fxml");
         }
     }
+   
 }

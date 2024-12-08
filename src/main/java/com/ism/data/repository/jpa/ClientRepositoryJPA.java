@@ -1,5 +1,6 @@
 package com.ism.data.repository.jpa;
 
+import com.ism.core.Factory.FactoryRepositoryJPA;
 import com.ism.core.Repository.RepositoryJPA;
 import com.ism.data.entities.Client;
 import com.ism.data.repository.interfaces.ClientRepositoryI;
@@ -9,21 +10,27 @@ import jakarta.persistence.TypedQuery;
 
 public class ClientRepositoryJPA extends RepositoryJPA<Client> implements ClientRepositoryI {
 
+    FactoryRepositoryJPA factory = new FactoryRepositoryJPA();
 
     public ClientRepositoryJPA( Class<Client> type) {
         super(type);
     }
 
-    @Override
-    public boolean insert(Client object) {
-        try {
-            super.insert(object); 
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace(); 
-            return false;
-        }
-    }
+    // @Override
+    // public boolean insert(Client object) {
+    //     try {
+    //         if (object.getUser() != null && factory.getInstanceRepoUser().selectById(object.getUser().getId()) == null) {
+    //             em.persist(object.getUser());
+    //             em.persist(object);
+    //         }else{
+    //             em.merge(object);
+    //         }
+    //         return true;
+    //     } catch (Exception e) {
+    //         e.printStackTrace(); 
+    //         return false;
+    //     }
+    // }
 
 
     @Override

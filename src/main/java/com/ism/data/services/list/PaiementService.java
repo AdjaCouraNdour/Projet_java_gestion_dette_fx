@@ -2,6 +2,7 @@ package com.ism.data.services.list;
 
 import java.util.List;
 
+import com.ism.data.entities.Dette;
 import com.ism.data.entities.Paiement;
 import com.ism.data.repository.interfaces.PaiementRepositoryI;
 import com.ism.data.services.interfaces.PaiementServiceI;
@@ -39,4 +40,11 @@ public class PaiementService implements PaiementServiceI{
     public boolean update(Paiement object) {
        return repo.update(object);
     } 
+    @Override
+    public List<Paiement> getPaiementByClientId (int clientId) {
+        return repo.selectAll().stream()
+                   .filter(paiement -> paiement.getDette().getClient().getId() == clientId)
+                   .toList();
+    }
+    
 }

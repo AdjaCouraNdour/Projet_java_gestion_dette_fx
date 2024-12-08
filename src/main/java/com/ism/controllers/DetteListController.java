@@ -47,13 +47,13 @@ public class DetteListController {
     }
 
     public void loadTable(){
-        Client connectedClient = factoryService.getInstanceClientService().getConnectedClient(connectedUser.getUserConnect().getId());
-        if (connectedClient.getUser().getUserRole() == UserRole.Client) {
+        Client connectedClient = connectedUser.getUserConnect().getClient();
+        if (connectedUser.getUserConnect().getUserRole() == UserRole.Client) {
             List<Dette> Dettes = factoryService.getInstanceDetteService().getByClientId(connectedClient.getId());
             System.out.println(Dettes);
             ObservableList<Dette>DetteList=FXCollections.observableArrayList(Dettes);
             tabview.setItems(DetteList);
-        }else if (connectedClient.getUser().getUserRole() == UserRole.Admin || connectedClient.getUser().getUserRole() == UserRole.Boutiquier) {
+        }else if (connectedUser.getUserConnect().getUserRole() == UserRole.Admin || connectedUser.getUserConnect().getUserRole() == UserRole.Boutiquier) {
             List<Dette> Dettes = factoryService.getInstanceDetteService().show();
             System.out.println(Dettes);
             ObservableList<Dette>DetteList=FXCollections.observableArrayList(Dettes);
